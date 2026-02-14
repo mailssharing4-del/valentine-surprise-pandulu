@@ -132,10 +132,13 @@ text-shadow:0 0 15px red, 0 0 30px hotpink;
 <script>
 function checkPassword(){
 var pass = document.getElementById("password").value;
-if(pass === "PANDU DIVYASREE GAIKWAD"){
+if(pass.trim() === "PANDU DIVYASREE GAIKWAD"){
 document.getElementById("lockScreen").style.display="none";
 document.getElementById("mainContent").style.display="block";
-document.getElementById("music").play();
+var music = document.getElementById("music");
+music.play().catch(function(error){
+console.log("Autoplay blocked");
+});
 }
 else{
 alert("Wrong Password Baby 💔");
@@ -191,7 +194,7 @@ setInterval(createEmoji,500);
 <body>
 
 <!-- Music -->
-<audio id="music" src="valentine song.mp3" loop></audio>
+<audio id="music" src="valentine-song.mp3" loop></audio>
 
 <!-- Password -->
 <div id="lockScreen">
